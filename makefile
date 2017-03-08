@@ -1,22 +1,31 @@
-.PHONY: clean
-.PHONY: cleanall
+.PHONY: clean cleanall depend
 
+CC=gcc
 #CFLAGS= -ansi -pedantic -O0 -Wall
-CFLAGS= -O0# -Wall
+CFLAGS= -O0 -g -Wall
 
-all: bubblesort numgen
+DEPS=bubblesort.h numgen.h hw4.h
+SRCS=bubblesort.c numgen.c hw4.c
 
-bubblesort: bubblesort.o
-	gcc -g -o bubblesort $(CFLAGS) bubblesort.o
+OBJS = $(SRCS:.c=.o)
+MAIN=hw4
 
-bubblesort.o: bubblesort.c bubblesort.h hw4.h
-	gcc -c -g -o bubblesort.o $(CFLAGS) bubblesort.c 
+all: $(MAIN)
+	@echo $(MAIN) compiled
 
-numgen: numgen.c numgen.h hw4.h 
-	gcc -g -o numgen $(CFLAGS) numgen.c 
+$(MAIN): $(OBJS) 
+	$(CC) $(CFLAGS) -o $(MAIN) $(OBJS)
+
+.c.o:
+	$(CC) $(CFLAGS) -c $<  -o $@
 
 clean:
 	rm -f *.o
 
 cleanall:
-	rm -f *.o bubblesort numgen
+	rm -f *.o $(MAIN)
+
+depend: $(SRCS)
+	makedepend $(DEPS) $^
+
+#
