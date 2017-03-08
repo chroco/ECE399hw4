@@ -4,16 +4,19 @@
 #CFLAGS= -ansi -pedantic -O0 -Wall
 CFLAGS= -O0# -Wall
 
-all: bubble 
+all: bubblesort numgen
 
-bubble: bubble.o
-	gcc -g -o bubble $(CFLAGS) bubble.o
+bubblesort: bubblesort.o
+	gcc -g -o bubblesort $(CFLAGS) bubblesort.o
 
-bubble.o: bubble.c bubble.h
-	gcc -c -g -o bubble.o $(CFLAGS) bubble.c 
+bubblesort.o: bubblesort.c bubblesort.h hw4.h
+	gcc -c -g -o bubblesort.o $(CFLAGS) bubblesort.c 
+
+numgen: numgen.c numgen.h hw4.h 
+	gcc -g -o numgen $(CFLAGS) numgen.c 
 
 clean:
 	rm -f *.o
 
 cleanall:
-	rm -f *.o bubble
+	rm -f *.o bubblesort numgen
