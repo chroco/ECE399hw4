@@ -2,21 +2,21 @@
 
 CC=gcc
 #CFLAGS= -ansi -pedantic -O0 -Wall
-CFLAGS= -O0 -g -Wall
+CFLAGS= -O0 -g -Wall -pthread
 
-DEPS=bubblesort.h numgen.h hw4.h
-SRCS=bubblesort.c numgen.c hw4.c
+DEPS=bubblesort.h numgen.h hw5.h
+SRCS=bubblesort.c numgen.c hw5.c
 
 OBJS = $(SRCS:.c=.o)
-MAIN=hw4
+MAIN=hw5
 
 all: $(MAIN)
 	@echo $(MAIN) compiled
 
-$(MAIN): $(OBJS) 
+$(MAIN): $(OBJS) $(DEPS)
 	$(CC) $(CFLAGS) -o $(MAIN) $(OBJS)
 
-.c.o:
+.c.o: $(DEPS)
 	$(CC) $(CFLAGS) -c $<  -o $@
 
 clean:

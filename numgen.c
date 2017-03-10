@@ -13,7 +13,7 @@ int numgen(char *file,int size){
 		nums.n[i]=rand()%100;
 	}
 
-	fwrite(&nums, sizeof(numbers), 1, fd);
+	fwrite(&nums,sizeof(numbers),1,fd);
 
 	fclose(fd);
 	return 0;
