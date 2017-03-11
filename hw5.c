@@ -14,8 +14,8 @@ int main(int argc,char *argv[]){
 	numbers nums;
 	numfill("test.num",&nums);
 	numprint(&nums);
-	pthread_bubblesort(&nums,2);
-	numprint(&nums);
+	pthread_bubblesort(&nums,4);
+//	numprint(&nums);
 
 	return 0;
 }
