@@ -2,6 +2,7 @@
 #define BUBBLESORT_H
 
 #include <pthread.h>
+#include <string.h>
 #include "numgen.h"
 
 int swap(int *,int *);
