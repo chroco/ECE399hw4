@@ -1,0 +1,32 @@
+Chad Coates
+ECE 399
+Homework #5
+March 12, 2017
+
+
+This program generates 64000 random integers
+and stores them to a binary file format. 
+An array is then populated from the integers 
+and a single threaded bubblesort is performed
+on the array. The sort time is then reported 
+along with verification that the array is sorted.
+Another array is then populated with the same
+random variables stored in the file and the
+same sort is performed only with four threads
+instead of one. The output from one of my
+tests is included below. The multithreaded
+sort takes about 1/10 the time as the single
+threaded sort.
+
+
+generating 64000 random integers...
+populating array with the random numbers...
+bubblesorting array with 1 thread...
+(@Y@) time: 17.371736 seconds
+Verifying the array is sorted...
+*****Sort Complete*****
+populating array with the random numbers...
+bubblesorting array with 4 threads...
+(@Y@) time: 1.723184 seconds
+Verifying the array is sorted...
+*****Sort Complete*****

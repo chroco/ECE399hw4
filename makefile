@@ -1,3 +1,9 @@
+
+#  Chad Coates
+#  ECE 399
+#  Homework #5
+#  March 12, 2017
+
 .PHONY: clean cleanall depend
 
 CC=gcc
@@ -16,14 +22,14 @@ all: $(MAIN)
 $(MAIN): $(OBJS) $(DEPS)
 	$(CC) $(CFLAGS) -o $(MAIN) $(OBJS)
 
-.c.o: $(DEPS)
+.c.o: 
 	$(CC) $(CFLAGS) -c $<  -o $@
 
 clean:
 	rm -f *.o
 
 cleanall:
-	rm -f *.o $(MAIN)
+	rm -f *.o $(MAIN) test.num
 
 depend: $(SRCS)
 	makedepend $(DEPS) $^
